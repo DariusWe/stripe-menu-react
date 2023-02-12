@@ -6,4 +6,4 @@ Try it out here:<br />
 https://main--beautiful-licorice-e1c80b.netlify.app/<br />
 (Netlify link)
 
-I do not take credits for the background animation (which can also be found on stripe's landing page). This is just copy/paste code from https<nolink>://whatamesh.vercel.app/.
+I do not take credits for the background lava lamp animation (which can also be found on stripe's landing page). This is just copy/paste code from https<nolink>://whatamesh.vercel.app/.
