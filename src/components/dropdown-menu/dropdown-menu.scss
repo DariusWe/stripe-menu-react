@@ -1,0 +1,133 @@
+.dropdown-container {
+  position: absolute;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0px 40px 80px rgba(0, 0, 0, 0.16);
+  color: black;
+  transition: width 0.2s, height 0.2s;
+  transform-origin: top;
+  overflow: hidden;
+  animation-duration: 0.2s;
+  @keyframes tiltIn {
+    0% {
+      opacity: 0;
+      transform: rotateX(-5deg);
+    }
+    100% {
+      opacity: 1;
+      transform: rotateX(0);
+    }
+  }
+  @keyframes tiltOut {
+    0% {
+      opacity: 1;
+      transform: rotateX(0);
+    }
+    100% {
+      opacity: 0;
+      transform: rotateX(-5deg);
+    }
+  }
+
+  .menu-content {
+    position: absolute;
+    width: fit-content;
+    animation-duration: 200ms;
+    animation-fill-mode: forwards;
+    color: #222;
+    font-size: 16px;
+
+    &.fade-in-to-left {
+      animation-name: fadeInToLeft;
+      @keyframes fadeInToLeft {
+        0% {
+          transform: translateX(150px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+    }
+
+    &.fade-in-to-right {
+      animation-name: fadeInToRight;
+      @keyframes fadeInToRight {
+        0% {
+          transform: translateX(-150px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+    }
+
+    &.fade-out-to-left {
+      animation-name: fadeOutToLeft;
+      @keyframes fadeOutToLeft {
+        0% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+        100% {
+          transform: translateX(-150px);
+          opacity: 0;
+        }
+      }
+    }
+
+    &.fade-out-to-right {
+      animation-name: fadeOutToRight;
+      @keyframes fadeOutToRight {
+        0% {
+          transform: translateX(0);
+          opacity: 1;
+        }
+        100% {
+          transform: translateX(150px);
+          opacity: 0;
+        }
+      }
+    }
+
+    section {
+      position: relative;
+      padding: 30px 35px;
+      padding-right: 100px;
+      &:nth-child(2) {
+        background-color: #f8f8f8;
+        border-radius: 0 0 10px 10px;
+        padding-bottom: 35px;
+      }
+      h3 {
+        font-size: 15px;
+        color: #888;
+        text-transform: uppercase;
+      }
+      ul {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        max-height: 160px;
+        height: auto;
+        gap: 15px 160px;
+        li {
+          cursor: pointer;
+          white-space: nowrap;
+          &:hover i {
+            color: #333;
+          }
+          i {
+            font-size: 15px;
+            color: #888;
+            width: 20px;
+            margin-right: 8px;
+          }
+        }
+      }
+    }
+  }
+}

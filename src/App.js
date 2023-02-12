@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.scss";
+import { useEffect } from "react";
+import { Gradient } from "./Gradient.js";
+import Header from "./components/header/header";
 
 function App() {
+  const gradient = new Gradient();
+
+  useEffect(() => {
+    gradient.initGradient(".gradient-canvas");
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+      <Header />
+      <canvas className="gradient-canvas" data-transition-in />
+      <div className="desc">
+        <h1>Payments infrastructure for the internet</h1>
+        <h1>Payments infrastructure for the internet</h1>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Millions of businesses of all sizes—from startups to large enterprises—use Stripe’s software and APIs to
+          accept payments, send payouts, and manage their businesses online.{" "}
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      </div>
     </div>
   );
 }
