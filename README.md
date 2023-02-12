@@ -1,9 +1,9 @@
 ## Stripe menu built with React
 
+A visually accurate recreation of stripe's animated menu (stripe.com), built with React and SCSS. Has some minor imperfections that result from mounting/unmounting the menu tabs (instead of just making them invisible with CSS). You can notice these flaws when switching between tabs really fast.
+
 Try it out here:<br />
-https://main--beautiful-licorice-e1c80b.netlify.app/
+https://main--beautiful-licorice-e1c80b.netlify.app/<br />
 (Netlify link)
 
-Probably the most accurate recreation of stripes animated menu (stripe.com) out there, built with react. Has some minor imperfections that result from mounting/unmounting the menu tabs instead of just pushing them out of the menu container and making them invisible. You can notice these flaws when switching between tabs really fast.
-
-The background animation, which you can also find on stripe's landing page, is not done by me. It's copy/paste code from https<nolink>://whatamesh.vercel.app/.
+I do not take credits for the background animation (which can also be found on stripe's landing page). This is just copy/paste code from https<nolink>://whatamesh.vercel.app/.
