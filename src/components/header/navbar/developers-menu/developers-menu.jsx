@@ -1,7 +1,7 @@
-import "./sub-menu-products.scss";
+import "./developers-menu.scss";
 import { forwardRef } from "react";
 
-const ProductsMenu = forwardRef(({ fadeInToLeft, fadeInToRight, fadeOutToLeft, fadeOutToRight }, ref) => {
+const DevelopersMenu = forwardRef(({ fadeInToLeft, fadeInToRight, fadeOutToLeft, fadeOutToRight }, ref) => {
   return (
     <div
       className={
@@ -17,7 +17,7 @@ const ProductsMenu = forwardRef(({ fadeInToLeft, fadeInToRight, fadeOutToLeft, f
       }
       ref={ref}
     >
-      <section>
+      <section className="section-top">
         <h3>Documentation</h3>
         <p className="description">Start integrating Stripe's producuts and tools</p>
         <ul>
@@ -33,7 +33,7 @@ const ProductsMenu = forwardRef(({ fadeInToLeft, fadeInToRight, fadeOutToLeft, f
           <li>Set up in-person payments</li>
         </ul>
       </section>
-      <section>
+      <section className="section-bottom">
         <ul>
           <li><i className="fa-solid fa-bars"></i>Full API Reference</li>
           <li><i className="fa-solid fa-heart-pulse"></i>API Status</li>
@@ -42,7 +42,7 @@ const ProductsMenu = forwardRef(({ fadeInToLeft, fadeInToRight, fadeOutToLeft, f
         </ul>
       </section>
     </div>
-  )
+  );
 });
 
-export default ProductsMenu;
+export default DevelopersMenu;

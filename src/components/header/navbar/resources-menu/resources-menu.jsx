@@ -17,7 +17,7 @@ const ResourcesMenu = forwardRef(({ fadeInToLeft, fadeInToRight, fadeOutToLeft, 
       }
       ref={ref}
     >
-      <section>
+      <section className="section-top">
         <ul>
           <li><i className="fa-solid fa-circle-info"></i>Support Center</li>
           <li><i className="fa-solid fa-pen"></i>Blog</li>
@@ -28,7 +28,7 @@ const ResourcesMenu = forwardRef(({ fadeInToLeft, fadeInToRight, fadeOutToLeft, 
           <li><i className="fa-solid fa-hands-bubbles"></i>Customer Stories</li>
         </ul>
       </section>
-      <section>
+      <section className="section-bottom">
         <ul>
           <li><i className="fa-solid fa-suitcase"></i>Jobs</li>
           <li><i className="fa-solid fa-book-open"></i>Stripe Press</li>

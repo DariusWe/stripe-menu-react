@@ -1,0 +1,14 @@
+.gradient-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 62vh;
+    height: calc(20vh + 400px);
+    width: 100vw;
+    --gradient-color-1: #0fd1e6;
+    --gradient-color-2: #4590a9;
+    --gradient-color-3: #c136dc;
+    --gradient-color-4: #ac4e95;
+    transform: skewY(-12deg);
+    transform-origin: left bottom;
+  }

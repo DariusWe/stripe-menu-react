@@ -1,19 +1,12 @@
 import "./App.scss";
-import { useEffect } from "react";
-import { Gradient } from "./Gradient.js";
 import Header from "./components/header/header";
+import LavaLampAnimation from "./components/lava-lamp-animation/lava-lamp-animation";
 
 function App() {
-  const gradient = new Gradient();
-
-  useEffect(() => {
-    gradient.initGradient(".gradient-canvas");
-  }, []);
-
   return (
     <div className="App">
       <Header />
-      <canvas className="gradient-canvas" data-transition-in />
+      <LavaLampAnimation />
       <div className="desc">
         <h1>Payments infrastructure for the internet</h1>
         <h1>Payments infrastructure for the internet</h1>

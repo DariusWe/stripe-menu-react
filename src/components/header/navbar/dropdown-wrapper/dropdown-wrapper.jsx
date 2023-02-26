@@ -1,11 +1,11 @@
-import "./dropdown-menu.scss";
+import "./dropdown-wrapper.scss";
 import { useState, useEffect, useRef } from "react";
-import ProductsMenu from "../sub-menu-products/sub-menu-products";
-import SolutionsMenu from "../sub-solutions-menu/solutions-menu";
-import DevelopersMenu from "../sub-developers-menu/developers-menu";
-import ResourcesMenu from "../sub-resources-menu/resources-menu";
+import ProductsMenu from "../products-menu/products-menu";
+import SolutionsMenu from "../solutions-menu/solutions-menu";
+import DevelopersMenu from "../developers-menu/developers-menu";
+import ResourcesMenu from "../resources-menu/resources-menu";
 
-const DropdownMenu = ({ menu }) => {
+const DropdownWrapper = ({ menu }) => {
   const [previousMenu, setPreviousMenu] = useState(null);
   const [dropdownDimensions, setDropdownDimensions] = useState({ height: 0, width: 0 });
   const productsMenuRef = useRef(null);
@@ -103,4 +103,4 @@ const DropdownMenu = ({ menu }) => {
   );
 };
 
-export default DropdownMenu;
+export default DropdownWrapper;

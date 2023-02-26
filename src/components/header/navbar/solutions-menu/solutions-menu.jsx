@@ -17,7 +17,7 @@ const SolutionsMenu = forwardRef(({ fadeInToLeft, fadeInToRight, fadeOutToLeft, 
       }
       ref={ref}
     >
-      <section>
+      <section className="section-top">
         <h3>Use Cases</h3>
         <ul>
           <li><i className="fa-solid fa-bag-shopping"></i>Ecommerce</li>
@@ -30,7 +30,7 @@ const SolutionsMenu = forwardRef(({ fadeInToLeft, fadeInToRight, fadeOutToLeft, 
           <li><i className="fa-solid fa-globe"></i>Global Businesses</li>
         </ul>
       </section>
-      <section>
+      <section className="section-bottom">
         <h3>Integrations & Custom Solutions</h3>
         <ul>
           <li><i className="fa-solid fa-square-plus"></i>App Marketplace</li>
