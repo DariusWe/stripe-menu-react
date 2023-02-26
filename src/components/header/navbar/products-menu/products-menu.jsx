@@ -1,5 +1,8 @@
 import "./products-menu.scss";
 import { forwardRef, useState } from "react";
+import SubMenuBanking from "./sub-menu-banking/sub-menu-banking";
+import SubMenuPayments from "./sub-menu-payments/sub-menu-payments";
+import SubMenuRevenue from "./sub-menu-revenue/sub-menu-revenue";
 
 const ProductsMenu = forwardRef(({ fadeInToLeft, fadeInToRight, fadeOutToLeft, fadeOutToRight }, ref) => {
   const [activeSubMenu, setActiveSubMenu] = useState("firstMenu");
@@ -36,10 +39,12 @@ const ProductsMenu = forwardRef(({ fadeInToLeft, fadeInToRight, fadeOutToLeft, f
         </ul>
       </section>
       <section className="section-right">
-        <div></div>
+        <SubMenuPayments className={`${activeSubMenu}IsActive`} />
+        <SubMenuRevenue className={`${activeSubMenu}IsActive`} />
+        <SubMenuBanking className={`${activeSubMenu}IsActive`} />
       </section>
     </div>
-  )
+  );
 });
 
 export default ProductsMenu;

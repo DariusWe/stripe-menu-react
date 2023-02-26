@@ -3,15 +3,18 @@
   padding: 5px;
   background-color: #f2f2f2;
   gap: 5px;
+  height: fit-content;
+  width: fit-content;
 
   .section-left {
+    width: 35%;
     li {
       padding: 20px 15px;
       border-radius: 5px;
       cursor: default;
       background-size: 100% 300%;
       background-image: linear-gradient(to bottom, transparent 33.3%, white 33.3%, white 66.6%, transparent 66.6%);
-      transition: background-position 150ms;
+      transition: background-position 120ms;
       transition-timing-function: linear;
 
       &:nth-child(1) {
@@ -44,6 +47,7 @@
         font-size: 15px;
         color: #222;
         text-transform: uppercase;
+        white-space: nowrap;
       }
       p {
         font-weight: 400;
@@ -53,7 +57,83 @@
   }
 
   .section-right {
-    width: 600px;
+    position: relative;
     background-color: white;
+    overflow: hidden;
+    width: 550px;
+    height: 400px;
+    .sub-menu-container {
+      position: absolute;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 15px 30px;
+      transition: all 200ms;
+
+      &:nth-child(1) {
+        transform: translateY(-100px);
+        opacity: 0;
+        z-index: 0;
+        &.firstMenuIsActive {
+          transform: translateY(0);
+          opacity: 1;
+          z-index: 1;
+        }
+      }
+
+      &:nth-child(2) {
+        &.firstMenuIsActive {
+          transform: translateY(100px);
+          opacity: 0;
+          z-index: 0;
+        }
+        &.secondMenuIsActive {
+          transform: translateY(0);
+          opacity: 1;
+          z-index: 1;
+        }
+        &.thirdMenuIsActive {
+          transform: translateY(-100px);
+          opacity: 0;
+          z-index: 0;
+        }
+      }
+
+      &:nth-child(3) {
+        transform: translateY(100px);
+        opacity: 0;
+        z-index: 0;
+        &.thirdMenuIsActive {
+          transform: translateY(0);
+          opacity: 1;
+          z-index: 1;
+        }
+      }
+
+      .sub-menu-item {
+        display: flex;
+        align-items: center;
+        padding: 10px 0;
+        width: 260px;
+        gap: 15px;
+        &:hover {
+          cursor: pointer;
+          h4, p {
+            color: black;
+          }
+        }
+        .circle {
+          width: 26px;
+          height: 26px;
+          border-radius: 100%;
+          opacity: 0.8;
+        }
+        p {
+          padding-top: 2px;
+          white-space: nowrap;
+          font-weight: 400;
+          color: #666;
+        }
+      }
+    }
   }
 }
