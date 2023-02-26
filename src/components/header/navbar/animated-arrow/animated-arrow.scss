@@ -1,0 +1,28 @@
+.arrow-up {
+  position: relative;
+  top: calc(100% - 5px);
+  left: 0;
+  width: 12px;
+  height: 6px;
+  filter: invert(1);
+  transition-timing-function: ease;
+  animation-name: arrowFadeIn;
+  animation-duration: 300ms;
+
+  @keyframes arrowFadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+  &.activate-transition {
+    transition: transform 200ms;
+  }
+}
+
+.placeholder {
+  width: 12px;
+}
