@@ -44,7 +44,7 @@ const Navbar = () => {
           Resources
         </span>
         <div className="dropdown-positioning">
-          <DropdownWrapper menu={activeMenu} />
+          <DropdownWrapper activeMenu={activeMenu} />
         </div>
       </div>
       <span className="list-item">Pricing</span>

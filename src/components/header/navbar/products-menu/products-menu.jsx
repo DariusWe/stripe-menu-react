@@ -1,27 +1,24 @@
 import "./products-menu.scss";
-import { forwardRef, useState } from "react";
+import { forwardRef, useEffect, useState } from "react";
 import SubMenuBanking from "./sub-menu-banking/sub-menu-banking";
 import SubMenuPayments from "./sub-menu-payments/sub-menu-payments";
 import SubMenuRevenue from "./sub-menu-revenue/sub-menu-revenue";
 
-const ProductsMenu = forwardRef(({ fadeInToLeft, fadeInToRight, fadeOutToLeft, fadeOutToRight }, ref) => {
+const ProductsMenu = forwardRef(({ className }, ref) => {
   const [activeSubMenu, setActiveSubMenu] = useState("firstMenu");
 
+  useEffect(() => {
+    // As this component does not unmount, activeSubMenu has to be reset manually when productsMenu is not active.
+    // Reset after 200ms to allow css transition effect to work properly.
+    if (className !== "productsMenuIsActive") {
+      setTimeout(() => {
+        setActiveSubMenu("firstMenu");
+      }, 200);
+    }
+  }, [className]);
+
   return (
-    <div
-      className={
-        fadeInToLeft
-          ? "menu-content products-container fade-in-to-left"
-          : fadeInToRight
-          ? "menu-content products-container fade-in-to-right"
-          : fadeOutToLeft
-          ? "menu-content products-container fade-out-to-left"
-          : fadeOutToRight
-          ? "menu-content products-container fade-out-to-right"
-          : "menu-content products-container"
-      }
-      ref={ref}
-    >
+    <div className={`menu-content products-menu ${className}`} ref={ref}>
       <section className="section-left">
         <ul>
           <li onMouseEnter={() => setActiveSubMenu("firstMenu")} className={`${activeSubMenu}IsActive`}>

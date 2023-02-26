@@ -2,7 +2,6 @@ import "./animated-arrow.scss";
 import arrow from "../../../../assets/arrow.png";
 
 const AnimatedArrow = ({ activeMenu, prevMenu }) => {
-    console.log(activeMenu);
   if (activeMenu) {
     return (
       <img

@@ -32,68 +32,81 @@
   .menu-content {
     position: absolute;
     width: fit-content;
-    animation-duration: 200ms;
-    animation-fill-mode: forwards;
     color: #222;
     font-size: 16px;
+    transition: all 200ms;
 
-    &.fade-in-to-left {
-      animation-name: fadeInToLeft;
-      @keyframes fadeInToLeft {
-        0% {
-          transform: translateX(150px);
-          opacity: 0;
-        }
-        100% {
-          transform: translateX(0);
-          opacity: 1;
-        }
+    &.products-menu {
+      opacity: 0;
+      &.productsMenuIsActive {
+        transform: translateX(0);
+        opacity: 1;
+        z-index: 1;
+      }
+      &.solutionsMenuIsActive {
+        transform: translateX(-201px);
+      }
+      &.developersMenuIsActive {
+        transform: translateX(-201px);
+      }
+      &.resourcesMenuIsActive {
+        transform: translateX(-201px);
+      }
+    }
+    &.solutions-menu {
+      opacity: 0;
+      &.productsMenuIsActive {
+        transform: translateX(201px);
+      }
+      &.solutionsMenuIsActive {
+        transform: translateX(0);
+        opacity: 1;
+        z-index: 1;
+      }
+      &.developersMenuIsActive {
+        transform: translateX(-101px);
+      }
+      &.resourcesMenuIsActive {
+        transform: translateX(-101px);
+      }
+    }
+    &.developers-menu {
+      opacity: 0;
+      &.productsMenuIsActive {
+        transform: translateX(101px);
+      }
+      &.solutionsMenuIsActive {
+        transform: translateX(101px);
+      }
+      &.developersMenuIsActive {
+        transform: translateX(0);
+        opacity: 1;
+        z-index: 1;
+      }
+      &.resourcesMenuIsActive {
+        transform: translateX(-101px);
+      }
+    }
+    &.resources-menu {
+      opacity: 0;
+      &.productsMenuIsActive {
+        transform: translateX(101px);
+      }
+      &.solutionsMenuIsActive {
+        transform: translateX(101px);
+      }
+      &.developersMenuIsActive {
+        transform: translateX(101px);
+      }
+      &.resourcesMenuIsActive {
+        transform: translateX(0);
+        opacity: 1;
+        z-index: 1;
       }
     }
 
-    &.fade-in-to-right {
-      animation-name: fadeInToRight;
-      @keyframes fadeInToRight {
-        0% {
-          transform: translateX(-150px);
-          opacity: 0;
-        }
-        100% {
-          transform: translateX(0);
-          opacity: 1;
-        }
-      }
-    }
-
-    &.fade-out-to-left {
-      animation-name: fadeOutToLeft;
-      @keyframes fadeOutToLeft {
-        0% {
-          transform: translateX(0);
-          opacity: 1;
-        }
-        100% {
-          transform: translateX(-150px);
-          opacity: 0;
-        }
-      }
-    }
-
-    &.fade-out-to-right {
-      animation-name: fadeOutToRight;
-      @keyframes fadeOutToRight {
-        0% {
-          transform: translateX(0);
-          opacity: 1;
-        }
-        100% {
-          transform: translateX(150px);
-          opacity: 0;
-        }
-      }
-    }
-
-    .section-top, .section-bottom {
+    .section-top,
+    .section-bottom {
       position: relative;
       padding: 30px 35px;
       padding-right: 100px;

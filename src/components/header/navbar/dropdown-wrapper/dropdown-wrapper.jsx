@@ -5,7 +5,7 @@ import SolutionsMenu from "../solutions-menu/solutions-menu";
 import DevelopersMenu from "../developers-menu/developers-menu";
 import ResourcesMenu from "../resources-menu/resources-menu";
 
-const DropdownWrapper = ({ menu }) => {
+const DropdownWrapper = ({ activeMenu }) => {
   const [previousMenu, setPreviousMenu] = useState(null);
   const [dropdownDimensions, setDropdownDimensions] = useState({ height: 0, width: 0 });
   const productsMenuRef = useRef(null);
@@ -15,90 +15,62 @@ const DropdownWrapper = ({ menu }) => {
 
   useEffect(() => {
     if (!previousMenu) {
-      setPreviousMenu(menu);
+      setPreviousMenu(activeMenu);
       return;
     }
-    if (menu !== previousMenu) {
+    if (activeMenu !== previousMenu) {
+      // setPreviousMenu with 200ms delay to allow tilt-out-animation when activeMenu is set to null.
       setTimeout(() => {
-        setPreviousMenu(menu);
+        setPreviousMenu(activeMenu);
       }, 200);
     }
-  }, [menu, previousMenu]);
+  }, [activeMenu, previousMenu]);
 
   useEffect(() => {
-    if (menu === "products" && productsMenuRef.current) {
+    if (activeMenu === "products" && productsMenuRef.current) {
       const refHeight = productsMenuRef.current.offsetHeight;
       const refWidth = productsMenuRef.current.offsetWidth;
       setDropdownDimensions({ height: refHeight, width: refWidth });
       return;
     }
-    if (menu === "solutions" && solutionsMenuRef.current) {
+    if (activeMenu === "solutions" && solutionsMenuRef.current) {
       const refHeight = solutionsMenuRef.current.offsetHeight;
       const refWidth = solutionsMenuRef.current.offsetWidth;
       setDropdownDimensions({ height: refHeight, width: refWidth });
       return;
     }
-    if (menu === "developers" && developersMenuRef.current) {
+    if (activeMenu === "developers" && developersMenuRef.current) {
       const refHeight = developersMenuRef.current.offsetHeight;
       const refWidth = developersMenuRef.current.offsetWidth;
       setDropdownDimensions({ height: refHeight, width: refWidth });
       return;
     }
-    if (menu === "resources" && resourcesMenuRef.current) {
+    if (activeMenu === "resources" && resourcesMenuRef.current) {
       const refHeight = resourcesMenuRef.current.offsetHeight;
       const refWidth = resourcesMenuRef.current.offsetWidth;
       setDropdownDimensions({ height: refHeight, width: refWidth });
       return;
     }
-  }, [menu]);
+  }, [activeMenu]);
 
   return (
     <div
       className="dropdown-container"
+      // Notes to use of previousMenu below: If not checked for previousMenu, height and width of dropdown
+      // will be set to 0 and immediately afterwards (next render) to the intended height and width. As
+      // height and width have a css transition effect, this will lead to an unwanted scaling effect.
       style={
-        previousMenu && menu
+        previousMenu && activeMenu
           ? { height: dropdownDimensions.height, width: dropdownDimensions.width, animationName: "tiltIn" }
-          : previousMenu && !menu
+          : previousMenu && !activeMenu
           ? { height: dropdownDimensions.height, width: dropdownDimensions.width, animationName: "tiltOut" }
           : null
       }
     >
-      {(menu === "products" || previousMenu === "products") && (
-        <ProductsMenu
-          ref={productsMenuRef}
-          fadeInToLeft={false}
-          fadeInToRight={menu === "products" && (previousMenu === "solutions" || previousMenu === "developers" || previousMenu === "resources")}
-          fadeOutToLeft={previousMenu === "products" && (menu === "solutions" || menu === "developers" || menu === "resources")}
-          fadeOutToRight={false}
-        />
-      )}
-      {(menu === "solutions" || previousMenu === "solutions") && (
-        <SolutionsMenu
-          ref={solutionsMenuRef}
-          fadeInToLeft={menu === "solutions" && previousMenu === "products"}
-          fadeInToRight={menu === "solutions" && (previousMenu === "developers" || previousMenu === "resources")}
-          fadeOutToLeft={previousMenu === "solutions" && (menu === "developers" || menu === "resources")}
-          fadeOutToRight={previousMenu === "solutions" && menu === "products"}
-        />
-      )}
-      {(menu === "developers" || previousMenu === "developers") && (
-        <DevelopersMenu
-          ref={developersMenuRef}
-          fadeInToLeft={menu === "developers" && (previousMenu === "products" || previousMenu === "solutions")}
-          fadeInToRight={menu === "developers" && previousMenu === "resources"}
-          fadeOutToLeft={previousMenu === "developers" && menu === "resources"}
-          fadeOutToRight={previousMenu === "developers" && (menu === "products" || menu === "solutions")}
-        />
-      )}
-      {(menu === "resources" || previousMenu === "resources") && (
-        <ResourcesMenu
-          ref={resourcesMenuRef}
-          fadeInToLeft={menu === "resources" && previousMenu && previousMenu !== "resources"}
-          fadeInToRight={false}
-          fadeOutToLeft={false}
-          fadeOutToRight={previousMenu === "resources" && menu && menu !== "resources"}
-        />
-      )}
+      <ProductsMenu ref={productsMenuRef} className={`${activeMenu}MenuIsActive`} />
+      <SolutionsMenu ref={solutionsMenuRef} className={`${activeMenu}MenuIsActive`} />
+      <DevelopersMenu ref={developersMenuRef} className={`${activeMenu}MenuIsActive`} />
+      <ResourcesMenu ref={resourcesMenuRef} className={`${activeMenu}MenuIsActive`} />
     </div>
   );
 };

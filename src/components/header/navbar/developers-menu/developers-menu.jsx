@@ -1,22 +1,9 @@
 import "./developers-menu.scss";
 import { forwardRef } from "react";
 
-const DevelopersMenu = forwardRef(({ fadeInToLeft, fadeInToRight, fadeOutToLeft, fadeOutToRight }, ref) => {
+const DevelopersMenu = forwardRef(({ className }, ref) => {
   return (
-    <div
-      className={
-        fadeInToLeft
-          ? "menu-content developers-container fade-in-to-left"
-          : fadeInToRight
-          ? "menu-content developers-container fade-in-to-right"
-          : fadeOutToLeft
-          ? "menu-content developers-container fade-out-to-left"
-          : fadeOutToRight
-          ? "menu-content developers-container fade-out-to-right"
-          : "menu-content developers-container"
-      }
-      ref={ref}
-    >
+    <div className={`menu-content developers-menu ${className}`} ref={ref}>
       <section className="section-top">
         <h3>Documentation</h3>
         <p className="description">Start integrating Stripe's producuts and tools</p>
@@ -35,10 +22,18 @@ const DevelopersMenu = forwardRef(({ fadeInToLeft, fadeInToRight, fadeOutToLeft,
       </section>
       <section className="section-bottom">
         <ul>
-          <li><i className="fa-solid fa-bars"></i>Full API Reference</li>
-          <li><i className="fa-solid fa-heart-pulse"></i>API Status</li>
-          <li><i className="fa-solid fa-circle-arrow-right"></i>API Changelog</li>
-          <li><i className="fa-solid fa-layer-group"></i>Build a Stripe App</li>
+          <li>
+            <i className="fa-solid fa-bars"></i>Full API Reference
+          </li>
+          <li>
+            <i className="fa-solid fa-heart-pulse"></i>API Status
+          </li>
+          <li>
+            <i className="fa-solid fa-circle-arrow-right"></i>API Changelog
+          </li>
+          <li>
+            <i className="fa-solid fa-layer-group"></i>Build a Stripe App
+          </li>
         </ul>
       </section>
     </div>
